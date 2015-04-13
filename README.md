@@ -1,2 +1,2 @@
 # MyProjEuler
-My bad Project Euler algorithms 
+My bad Project Euler files. Hooray! 
