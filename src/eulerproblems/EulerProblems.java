@@ -92,7 +92,10 @@ public class EulerProblems {
     
     public static long Euler10(){ //BROKEN!!!
         
+
         long result = 2;
+
+
         for (int i = 3; i <2000000; i++) {
             //System.out.println(i);
             if(isPrime(i)){System.out.println(i);result += i;}
