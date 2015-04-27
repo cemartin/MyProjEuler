@@ -18,7 +18,7 @@ public class EulerProblems {
      */
     public static void main(String[] args) {
        
-        System.out.println(Euler3());
+        System.out.println(Euler10());
     }
     
     public static ArrayList pSeive(int n) { // This method returns an ArrayList containing all prime numbers less than n using Seive of Eritosthenes
@@ -30,7 +30,7 @@ public class EulerProblems {
         int i = 0; // index for below while loop
         int p; // prime number to remove multiples of from list
         while (i < pList.size()) { // run through pList
-            p = (int) pList.get(i); // I wish I knew more about control structures that might be more appropriate
+            p = (int) pList.get(i); // I wish I knew more about data structures that might be more appropriate
             System.out.println(p);
             for (int j = i + 1; j < pList.size(); j++) {
                 if ((int) pList.get(j) % p == 0) {
@@ -48,7 +48,7 @@ public class EulerProblems {
       
         if((n&1) == 0){return false;} // checks for divisibility by two
         
-        for(int i = 3; i*i<n; i+=2){
+        for(int i = 3; i*i<=n; i+=2){
             //System.out.println(i);
             if(n%i == 0){return false;}
         }
@@ -89,5 +89,16 @@ public class EulerProblems {
         int c = b.size();
         return((long)b.get(c-1));
     }
+    
+    public static long Euler10(){ //BROKEN!!!
+        
+        long result = 2;
+        for (int i = 3; i <2000000; i++) {
+            //System.out.println(i);
+            if(isPrime(i)){System.out.println(i);result += i;}
+        }
+        return result;
+    }
+    
 }
 
