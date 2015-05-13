@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package eulerproblems;
+import java.math.BigInteger;
 import java.util.ArrayList;
-import java.math.*;
+//import java.math.*;
 
 /**
  *
@@ -18,7 +19,9 @@ public class EulerProblems {
      */
     public static void main(String[] args) {
        
-        System.out.println(Euler10());
+        ArrayList pList = pSeive(200);
+        System.out.println(pList.toString());
+        
     }
     
     public static ArrayList pSeive(int n) { // This method returns an ArrayList containing all prime numbers less than n using Seive of Eritosthenes
@@ -76,6 +79,20 @@ public class EulerProblems {
         return fList;
     }
     
+    public static boolean isSquare(long n){
+        long sqrt = (long)Math.sqrt((double)n);
+        return (sqrt*sqrt) == n;
+    }
+    
+    public static long factorCount(long n){ // returns # of factors in 
+        long factorcount = 0;
+        for(int i = 1; i*i<n; i++){
+            factorcount += (n%i == 0 ? 2 : 0);
+        }
+        
+        return factorcount;
+    }
+    
     public static int Euler7(){ 
         ArrayList testSeive;
         testSeive = pSeive(300000);
@@ -90,7 +107,7 @@ public class EulerProblems {
         return((long)b.get(c-1));
     }
     
-    public static long Euler10(){ //BROKEN!!!
+    public static long Euler10(){ 
         
 
         long result = 2;
@@ -103,5 +120,49 @@ public class EulerProblems {
         return result;
     }
     
+    
+    public static long Euler12(){
+        
+        long trinum = 1; //triangular number
+        long i = 1; // index of triangular number
+        long fcard; // number of factors of trinum
+        while(true){
+            fcard = 0;
+            for(long j = 1; j<=trinum; j++){
+                fcard = (trinum%j == 0) ? fcard+1 : fcard;
+            } 
+            System.out.println(fcard);
+            if(fcard > 500){break;}
+            ++i;
+            trinum += i;
+            
+        }
+        return trinum;
+        
+    }
+    
+    public static long Euler29() { // 5.13.15 - RETURNS INCORRECT ANSWER
+        
+        ArrayList disPow = new ArrayList();
+        BigInteger n;
+        for ( int a = 2; a <= 200; a++){
+            for (int b = 2; b <= 200; b++){
+                //n = (long) Math.pow(a, b);
+                
+                n = new BigInteger(Integer.toString(a)).pow(b);
+                //System.out.println(n.toString());
+                if(!disPow.contains(n)){
+                    disPow.add(n);
+                }
+            }
+        }
+        System.out.print(disPow);
+        return(disPow.size());
+    }
+        
+        
 }
+    
+    
+
 
